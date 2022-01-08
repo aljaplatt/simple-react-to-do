@@ -14,6 +14,7 @@ function App() {
     setTodo([...todo, item]);
   }
 
+  // This will remove an item if given an index
   function removeItem(idx) {
     // take in the index of the item we want to remove.
     // slice/copy everything from 0 up to the index of item to be deleted - takes everything in before the idx.
@@ -24,8 +25,11 @@ function App() {
 
   return (
     // render an input and list - these don't exist yet, make component folders, then files for each
+    // onDelete being handed down as a prop - passed removeItem function
+    // List handed in todo state from above & removeItem fn
+    // Input - onSubmit - run addItem fn.
     <div className="App">
-      <Input />
+      <Input onSubmit={addItem} />
       <List todo={todo} onDelete={removeItem} />
     </div>
   );

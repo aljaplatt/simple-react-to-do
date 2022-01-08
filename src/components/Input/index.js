@@ -16,9 +16,17 @@ const Input = ({ onSubmit }) => {
   return (
     // onChange of the input field - run handle change function
     // https://sebhastian.com/react-onchange/ - track the value of input elements - value = text - for a controlled component - not req
+    // onSubmit in App runs addItem - addItem needs to be given an item/text.
+    // so - onClick - call the onSubmit fn and hand it the text being tracked in state.
     <div>
       <input onChange={handleChange} value={text} />
-      <button onClick={onSubmit}>Add a task</button>
+      <button
+        onClick={() => {
+          onSubmit(text);
+        }}
+      >
+        Add a task
+      </button>
     </div>
   );
 };
